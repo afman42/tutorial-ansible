@@ -1,0 +1,15 @@
+- name: Uninstall Nginx Server
+  hosts: server1
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Stop Nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: stopped
+      ignore_errors: true # Continue even if service is not running
+    - name: Ensure Nginx is not installed
+      ansible.builtin.package:
+        name: nginx
+        state: absent
+        autoremove: yes # (Optional) Remove unused dependencies

@@ -62,6 +62,9 @@ ansible-playbook -i inventory.yml playbook.yml
 Pada panduan ini saya mengaplikasikan beberapa case menggunakan VM dengan bantuan vagrant, saya menyertakan juga Vagrantfile pada folder berikut [vagrant setup](/vagrant). Ini hanya optional saja, kamu bisa menggunakan server langsung atau cloud untuk mengaplikasikan vagrant ini.
 
 Jika kamu berminat, kamu bisa pelajari vagrant pada link berikut [Belajar Vagrant](https://www.warriornux.com/mengenal-vagrant/)
+## Cleanup Task
+
+Task yang berjalan dan ingin menghapus depedencies,tasks,dan service.Buat file baru untuk `cleanup.yml` serta task apa yang mau dihapus dan jalankan `ansible-playbook -i inventory.yml cleanup.yml`
 
 ## Roadmap Case
 
