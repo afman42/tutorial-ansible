@@ -38,12 +38,9 @@
         name: "{{ container_image }}"
         source: pull
 
+    - name: app container
+      command: sudo docker run -d --name {{container_name}} -p {{container_exposed_port}}:80 {{container_image}}
+
     - name: check container stat
       command: "curl localhost:{{container_exposed_port}}"
       failed_when: false
-      register: container_stat
-
-    - name: app container
-      command: sudo docker run -d --name {{container_name}} -p {{container_exposed_port}}:80 {{container_image}}
-      when: >
-        "Connection refused" in container_stat.stderr
